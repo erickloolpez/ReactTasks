@@ -1,0 +1,56 @@
+.circle {
+    background: rgb(130, 129, 231);
+    background: linear-gradient(180deg, rgba(130, 129, 231, 1) 43%, rgba(49, 246, 241, 1) 69%);
+}
+
+.task-title {
+    background: rgb(139, 207, 210);
+    background: linear-gradient(153deg, rgba(139, 207, 210, 1) 44%, rgba(255, 159, 110, 1) 59%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.borderLeft {
+    background: #FF6950;
+    opacity: .5;
+    filter: blur(90px);
+}
+
+.borderRight {
+    background: #8ACEE3;
+    opacity: .5;
+    filter: blur(90px);
+}
+
+.task-complete {
+    background-color: #F0ECE6;
+}
+
+.task{
+    background-color:white;
+}
+
+.task-complete--p {
+    text-decoration: line-through;
+}
+
+.trash:hover{
+    color:red;
+    cursor:pointer;
+    scale:1.2;
+    transition: size 2s;
+}
+
+.skeleton {
+    opacity : 0.7;
+    animation:skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading{
+    0%{
+        background-color:hsl(200,20%,70%);
+    }
+    100%{
+        background-color: hsl(200,20%,95%);
+    }
+}
