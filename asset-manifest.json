@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/erickloolpez/dReactTasks/static/css/main.c34dd26e.css",
-    "main.js": "/erickloolpez/dReactTasks/static/js/main.afa7f297.js",
-    "static/media/women.png": "/erickloolpez/dReactTasks/static/media/women.464415c7414be259a2fb.png",
-    "index.html": "/erickloolpez/dReactTasks/index.html",
-    "main.c34dd26e.css.map": "/erickloolpez/dReactTasks/static/css/main.c34dd26e.css.map",
-    "main.afa7f297.js.map": "/erickloolpez/dReactTasks/static/js/main.afa7f297.js.map"
+    "main.css": "/dReactTasks/static/css/main.c34dd26e.css",
+    "main.js": "/dReactTasks/static/js/main.eb08b9c7.js",
+    "static/media/women.png": "/dReactTasks/static/media/women.464415c7414be259a2fb.png",
+    "index.html": "/dReactTasks/index.html",
+    "main.c34dd26e.css.map": "/dReactTasks/static/css/main.c34dd26e.css.map",
+    "main.eb08b9c7.js.map": "/dReactTasks/static/js/main.eb08b9c7.js.map"
   },
   "entrypoints": [
     "static/css/main.c34dd26e.css",
-    "static/js/main.afa7f297.js"
+    "static/js/main.eb08b9c7.js"
   ]
 }
