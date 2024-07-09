@@ -1,4 +1,3 @@
-import './App.css';
 import { LeftSide } from '../Components/LeftSide/LeftSide'
 import { RightSide } from '../Components/RightSide/RightSide'
 import { TodoProvider } from '../Context/Todo'
