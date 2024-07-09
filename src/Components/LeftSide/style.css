@@ -1,0 +1,5 @@
+.boxLeft {
+    -webkit-box-shadow: 7px 6px 14px -3px rgba(46, 74, 117, 0.31);
+    -moz-box-shadow: 7px 6px 14px -3px rgba(46, 74, 117, 0.31);
+    box-shadow: 7px 6px 14px -3px rgba(46, 74, 117, 0.31);
+}

@@ -4,14 +4,21 @@ import { ListTodos } from '../Utils/ListTodos'
 export const TodoContext = createContext()
 
 export function TodoProvider({ children }) {
-    const [todoList, setTodoList] = useState(ListTodos)
     const [depureTodos, setDepureTodos] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
 
-    const filterTodos = (text) => {
-        const filter = depureTodos.filter((todo) => (todo.text.toLowerCase().includes(text.toLowerCase())))
-        setDepureTodos(filter)
+    const filterTodos = (text, hide) => {
+        let filterCompleted
+        let filter
+        if (hide) {
+            filterCompleted = depureTodos.filter((task) => (!task.completed))
+            filter = filterCompleted.filter((todo) => (todo.text.toLowerCase().includes(text.toLowerCase())))
+        } else {
+            filter = depureTodos.filter((todo) => (todo.text.toLowerCase().includes(text.toLowerCase())))
+        }
+
+        return filter
     }
 
     const checkTodo = (text) => {
@@ -32,8 +39,16 @@ export function TodoProvider({ children }) {
             completed: false
         }
 
-        depureTodos.push(todo)
-        saveItem([...depureTodos])
+        let exist = depureTodos.find((todo) => (todo.text === text))
+
+        if (exist) {
+            return true
+        } else {
+            depureTodos.push(todo)
+            saveItem([...depureTodos])
+            return false
+        }
+
     }
 
     const saveItem = (newItem) => {
@@ -67,8 +82,6 @@ export function TodoProvider({ children }) {
 
 
     const valueContext = {
-        todoList,
-        setTodoList,
         filterTodos,
         depureTodos,
         checkTodo,

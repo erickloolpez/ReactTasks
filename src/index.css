@@ -21,6 +21,7 @@ body {
   grid-template-rows:100%;
   grid-template-columns:50% 50%;
   position:relative;
+  overflow:hidden;
 }
 
 code {

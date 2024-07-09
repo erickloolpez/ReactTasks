@@ -10,6 +10,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
@@ -30,5 +32,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "/Users/erick/Documents/sheetsCode/React/React/curso-react-intro/build"
+  "homepage": "https://github.com/erickloolpez/dReactTasks",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
 }
