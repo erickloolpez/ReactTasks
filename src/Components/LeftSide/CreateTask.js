@@ -31,6 +31,7 @@ function CreateTask() {
           } else {
             setError({state:true,text:'Llena el campo con la tarea :3'})
           }
+          setNewTask('')
         }}>Create Task</button>
       </form>
       <div style={{ width: '90%', height: '60%', }}>
