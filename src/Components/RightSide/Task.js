@@ -1,11 +1,9 @@
 import React from 'react'
 import { FaCheck } from "react-icons/fa6";
-import useTodo from '../../Hooks/useTodo'
 import { GoTrash } from "react-icons/go";
 import './style.css'
 
-function Task({ todo }) {
-    const { checkTodo, deleteTodo } = useTodo()
+function Task({ todo, checkTodo, deleteTodo }) {
     return (
         <div className={`${todo.completed ? 'task-complete' : 'task'}`} style={{ width: '80%', height: 60, display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingInline: 12, borderRadius: 10, marginTop: 10, cursor: 'pointer' }} onClick={() => {
             checkTodo(todo.text)
