@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { IoSearch } from "react-icons/io5";
 import './style.css'
+import { TaskList } from './TaskList'
 import { Task } from './Task';
 import useTodo from '../../Hooks/useTodo'
 import { TaskLoading } from './TaskLoading'
@@ -9,7 +10,7 @@ import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 function YourTasks() {
   const [searchValue, setSearchValue] = useState('')
-  const { filterTodos, depureTodos, loading, error } = useTodo()
+  const { filterTodos, depureTodos, loading, error, checkTodo, deleteTodo } = useTodo()
   const [taskList, setTaskList] = useState([...depureTodos])
   const [hide, setHide] = useState(false)
 
@@ -45,11 +46,33 @@ function YourTasks() {
             const value = event.target.value
             setSearchValue(value)
             setTaskList(filterTodos(value, hide))
-          }} />
+          }}  disabled={loading}/>
           <IoSearch size={28} style={{ marginRight: 6 }} />
         </div>
       </div>
-      <div className={'yourTasks'} style={{ width: '80%', height: '60%', display: 'flex', flexDirection: 'column', alignItems: 'center', overflowY: 'auto' }}>
+      <TaskList
+        error={error}
+        loading={loading}
+        depureTodos={depureTodos}
+        taskList={taskList}
+        onError={() => <p>Desesperate, hubo un error</p>}
+        onLoading={() => (
+          <>
+            <TaskLoading />
+            <TaskLoading />
+            <TaskLoading />
+            <TaskLoading />
+            <TaskLoading />
+          </>
+        )}
+        onEmpty={() => <p>!Create your first Task!</p>}
+      >
+        {(todo, index) => (
+          <Task key={index} todo={todo} checkTodo={checkTodo} deleteTodo={deleteTodo} />
+        )}
+      </TaskList>
+
+      {/* <div className={'yourTasks'} style={{ width: '80%', height: '60%', display: 'flex', flexDirection: 'column', alignItems: 'center', overflowY: 'auto' }}>
         {loading && (
           <>
             <TaskLoading />
@@ -62,12 +85,12 @@ function YourTasks() {
         {error && <p>Desesperte, hubo un error</p>}
         {(!loading && depureTodos.length === 0) && <p>!Create your first Task!</p>}
         {(!loading && !error) && taskList.map((todo, index) => (
-          <Task key={index} todo={todo} />
+          <Task key={index} todo={todo} checkTodo={checkTodo} deleteTodo={deleteTodo} />
         ))}
-      </div>
+      </div> */}
       <div style={{ width: '80%', height: '10%', display: 'flex', justifyContent: 'center' }}>
         {taskList.length > 0 && (
-          <div style={{ height: 30, display: 'flex', alignItems: 'center',  cursor: 'pointer' }} onClick={() => {
+          <div style={{ height: 30, display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => {
             setHide((prevHide) => {
               const newHide = !prevHide;
               onlyIncomplete(newHide);
